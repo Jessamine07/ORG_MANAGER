@@ -125,14 +125,14 @@ export default function Sidebar() {
           <div className="flex flex-col items-center mb-10">
             <div className="relative w-20 h-20">
               <img
-                src={
-                  profile?.sidebar_image
-                    ? profile.sidebar_image + "?t=" + new Date().getTime()
-                    : "/logo.png"
-                }
-                alt="Logo"
-                className="w-full h-full object-contain rounded-full"
-              />
+  src={
+    profile?.sidebar_image
+      ? `https://org-manager-o05u.onrender.com${profile.sidebar_image}?t=${new Date().getTime()}`
+      : "/logo.png"
+  }
+  alt="Logo"
+  className="w-full h-full object-contain rounded-full"
+/>
 
               <input
                 type="file"
