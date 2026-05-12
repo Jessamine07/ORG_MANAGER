@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* 🌙 DARK MODE GLOBAL */
+.dark-mode {
+  background: #0B0F19 !important;
+  color: #E5E7EB;
+}
+
+/* 📦 MAIN CONTENT BACKGROUND */
+.dark-mode .flex-1 {
+  background: #0B0F19 !important;
+}
+
+/* 📦 CARDS */
+.dark-mode .bg-white {
+  background: #0B0F19 !important;
+  color: white !important;
+}
+
+/* 🧾 TEXT */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode span {
+  color: #E5E7EB !important;
+}
+
+/* CLEAN DARK MODE INPUTS */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: #020617 !important;
+  color: white !important;
+  border: 1px solid #374151 !important;
+}
+
+/* REMOVE LIGHT OVERRIDES */
+.dark-mode .bg-gray-100 {
+  background-color: #020617 !important;
+}
+
+
+/* 🔤 SMALL TEXT */
+.dark-mode .text-gray-400 {
+  color: #9CA3AF !important;
+}
+
+.dark-mode input {
+  color: white;
+  background: transparent !important;
+  outline: none;
+  border: none;
+}
+
+input {
+  caret-color: #0B0F19;
+}
+
+.dark-mode input {
+  caret-color: white !important;
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 🔔 DROPDOWN */
+.dark-mode .shadow-xl {
+  background: #111827 !important;
+  color: white;
+}
+
+/* 📌 SIDEBAR */
+.dark-mode aside {
+  background: #0B0F19 !important;
+  color: white !important;
+}
+
+/* 🔴 ACCENT BORDER */
+.dark-mode .border-l-4 {
+  border-color: #7F1D1D !important;
+}
+
+/* SIDEBAR DARK MODE FIX */
+.dark-mode .shadow {
+  background: #111827 !important;
+}
+
+.dark-mode .hover\:text-\[\#3C0008\]:hover {
+  color: white !important;
+}
+
+/* FORCE FULL SIDEBAR DARK */
+.dark-mode .fixed {
+  background: #0B0F19 !important;
+}
+
+.dark-mode body {
+  background: #0B0F19 !important;
+}
+
+/* 🎯 ONLY SEARCH BAR STYLE */
+.search-input {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.search-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+input::placeholder {
+  color: #9CA3AF; /* gray */
+}
+
+/* 🔥 REMOVE ALL INPUT VISUAL STYLES */
+
+
+/* 🔥 CHROME AUTOFILL FIX (MAIN PROBLEM) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: #9CA3AF !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ☀️ LIGHT MODE OVERRIDE */
+body:not(.dark-mode) .bg-gradient-to-br {
+  background: white !important;
+  color: black !important;
+  border: 1px solid #e5e7eb !important; /* optional soft border */
+}
+
+/* fix text inside */
+body:not(.dark-mode) .bg-gradient-to-br * {
+  color: inherit !important;
+}
+
+.dark-mode .bg-gradient-to-br {
+  position: relative;
+}
+
+/* LIGHT MODE CARD BASE */
+body:not(.dark-mode) .bg-gradient-to-br {
+  background: white !important;
+  color: black !important;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: none !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+/* RED LEFT ACCENT */
+/* RED LEFT ACCENT (ALL MODES) */
+/* default: add red border */
+.bg-gradient-to-br::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 6px;
+  background: #3C0008;
+  border-radius: 16px 0 0 16px;
+}
+
+/* ❌ REMOVE red border ONLY for no-accent */
+.bg-gradient-to-br.no-accent::before {
+  display: none;
+}
+
+/* LIGHT MODE TEXT */
+body:not(.dark-mode) .bg-gradient-to-br h2 {
+  color: #3C0008 !important; /* dark red number */
+}
+
+body:not(.dark-mode) .bg-gradient-to-br p:first-child {
+  color: #9CA3AF !important; /* label */
+}
+
+body:not(.dark-mode) .bg-gradient-to-br p:not(:first-child) {
+  color: #6B7280 !important; /* subtext */
+}
+
+/* GREEN TEXT */
+body:not(.dark-mode) .bg-gradient-to-br .text-green-400,
+body:not(.dark-mode) .bg-gradient-to-br .text-green-600 {
+  color: #16A34A !important;
+}
+
+.search-input {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.search-input:focus {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #3C0008;
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #5C0010;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn .25s ease;
+}
+
+.animate-scaleIn {
+  animation: scaleIn .25s ease;
+}
