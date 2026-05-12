@@ -464,10 +464,10 @@ bg-transparent
    {profile?.profile_image ? (
   <img
   src={
-    profile?.profile_image
-      ? `https://org-manager-o05u.onrender.com${profile.profile_image}?t=${new Date().getTime()}`
-      : "/default-avatar.png"
-  }
+  profile?.profile_image
+    ? `${profile.profile_image}?t=${new Date().getTime()}`
+    : "/default-avatar.png"
+}
   className="w-9 h-9 rounded-full object-cover"
 />
 ) : (
