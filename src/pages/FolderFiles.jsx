@@ -18,14 +18,14 @@ const location = useLocation()
 const [selectedUpload, setSelectedUpload] = useState(null)
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/files/${id}/`)
+    fetch(`https://org-manager-o05u.onrender.com/api/files/${id}/`)
       .then(res => res.json())
       .then(data => setFiles(data))
   }, [id])
 
   useEffect(() => {
 
-  fetch(`http://127.0.0.1:8000/api/folders/`)
+  fetch(`https://org-manager-o05u.onrender.com/api/folders/`)
     .then(res => res.json())
     .then(data => {
 
@@ -49,18 +49,18 @@ const [selectedUpload, setSelectedUpload] = useState(null)
     formData.append("file", file)
     formData.append("folder_id", id)
 
-    await fetch("http://127.0.0.1:8000/api/files/upload/", {
+    await fetch("https://org-manager-o05u.onrender.com/api/files/upload/", {
       method: "POST",
       body: formData
     })
 
-    const res = await fetch(`http://127.0.0.1:8000/api/files/${id}/`)
+    const res = await fetch(`https://org-manager-o05u.onrender.com/api/files/${id}/`)
     const data = await res.json()
     setFiles(data)
   }
 
   const handleRename = async () => {
-  await fetch("http://127.0.0.1:8000/api/files/rename/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/files/rename/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -79,7 +79,7 @@ const [selectedUpload, setSelectedUpload] = useState(null)
 }
 
 const handleDelete = async () => {
-  await fetch("http://127.0.0.1:8000/api/files/delete/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/files/delete/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id: selectedFileId })
@@ -99,12 +99,12 @@ const handleDrop = async (e) => {
   formData.append("file", file)
   formData.append("folder_id", id)
 
-  await fetch("http://127.0.0.1:8000/api/files/upload/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/files/upload/", {
     method: "POST",
     body: formData
   })
 
-  const res = await fetch(`http://127.0.0.1:8000/api/files/${id}/`)
+  const res = await fetch(`https://org-manager-o05u.onrender.com/api/files/${id}/`)
   const data = await res.json()
   setFiles(data)
 }
@@ -246,7 +246,7 @@ const handleDragOver = (e) => {
     formData.append("folder_id", id)
 
     await fetch(
-      "http://127.0.0.1:8000/api/files/upload/",
+      "https://org-manager-o05u.onrender.com/api/files/upload/",
       {
         method: "POST",
         body: formData
@@ -254,7 +254,7 @@ const handleDragOver = (e) => {
     )
 
     const res = await fetch(
-      `http://127.0.0.1:8000/api/files/${id}/`
+      `https://org-manager-o05u.onrender.com/api/files/${id}/`
     )
 
     const data = await res.json()

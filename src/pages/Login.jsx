@@ -27,7 +27,7 @@ const [alertModal, setAlertModal] = useState({
 
      await getCSRF() // 🔥 FIRST CALL THIS
 
-    const res = await fetch("http://127.0.0.1:8000/api/login/", {
+    const res = await fetch("https://org-manager-o05u.onrender.com/api/login/", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -69,7 +69,7 @@ localStorage.setItem("username", username)  // 🔥 save current user
   }
 
   const getCSRF = async () => {
-  await fetch("http://127.0.0.1:8000/api/csrf/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/csrf/", {
     credentials: "include"
   })
 }
@@ -83,7 +83,7 @@ const handleForgotPassword = async () => {
 
   await getCSRF()
 
-  const res = await fetch("http://127.0.0.1:8000/api/reset-password/", {
+  const res = await fetch("https://org-manager-o05u.onrender.com/api/reset-password/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -121,7 +121,7 @@ const handleResetPassword = async () => {
 
   await getCSRF()
 
-  const res = await fetch("http://127.0.0.1:8000/api/reset-password/", {
+  const res = await fetch("https://org-manager-o05u.onrender.com/api/reset-password/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

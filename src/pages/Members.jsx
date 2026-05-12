@@ -48,7 +48,7 @@ const years = [
   // 🔥 FETCH MEMBERS FROM DJANGO
   const fetchMembers = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/members/", {
+      const res = await fetch("https://org-manager-o05u.onrender.com/api/members/", {
       credentials: "include"
 })
       const data = await res.json()
@@ -81,7 +81,7 @@ const handleSave = async () => {
       formData.append("image", editing.file)
     }
 
-    await fetch("http://127.0.0.1:8000/api/members/save/", {
+    await fetch("https://org-manager-o05u.onrender.com/api/members/save/", {
   method: "POST",
   credentials: "include",
   body: formData
@@ -104,7 +104,7 @@ localStorage.setItem("selectedYear", editing.year)
   // 🔥 DELETE MEMBER
   const handleDelete = async (id) => {
   try {
-    await fetch("http://127.0.0.1:8000/api/members/delete/", {
+    await fetch("https://org-manager-o05u.onrender.com/api/members/delete/", {
   method: "POST",
   credentials: "include",
   headers: {

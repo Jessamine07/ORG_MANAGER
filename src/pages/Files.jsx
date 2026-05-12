@@ -65,13 +65,13 @@ export default function Files({ darkMode }) {
 }, [showDeleteModal, showRenameModal])
 
   useEffect(() => {
-  fetch("http://127.0.0.1:8000/api/files/")
+  fetch("https://org-manager-o05u.onrender.com/api/files/")
     .then(res => res.json())
     .then(data => setFiles(data))
 }, [])
 
 useEffect(() => {
-  fetch("http://127.0.0.1:8000/api/folders/")
+  fetch("https://org-manager-o05u.onrender.com/api/folders/")
     .then(res => res.json())
     .then(data => setFolders(data))
 }, [])
@@ -83,13 +83,13 @@ useEffect(() => {
   const formData = new FormData()
   formData.append("file", file)
 
-  await fetch("http://127.0.0.1:8000/api/files/upload/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/files/upload/", {
     method: "POST",
     body: formData
   })
 
   // 🔥 RELOAD FILES AFTER UPLOAD
-  const res = await fetch("http://127.0.0.1:8000/api/files/")
+  const res = await fetch("https://org-manager-o05u.onrender.com/api/files/")
   const data = await res.json()
   setFiles(data)
 }
@@ -101,7 +101,7 @@ useEffect(() => {
   }
 
 const handleDelete = async () => {
-  await fetch("http://127.0.0.1:8000/api/files/delete/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/files/delete/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -123,7 +123,7 @@ const handleRename = async (folder) => {
   const newName = prompt("Enter new folder name", folder.name)
   if (!newName) return
 
-  await fetch("http://127.0.0.1:8000/api/folders/rename/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/folders/rename/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -145,7 +145,7 @@ const handleDeleteFolder = async (id) => {
   const confirmDelete = window.confirm("Delete this folder?")
   if (!confirmDelete) return
 
-  await fetch("http://127.0.0.1:8000/api/folders/delete/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/folders/delete/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -160,7 +160,7 @@ const handleDeleteFolder = async (id) => {
 const handleCreateFolder = async () => {
   if (!newFolderName.trim()) return
 
-  const res = await fetch("http://127.0.0.1:8000/api/folders/add/", {
+  const res = await fetch("https://org-manager-o05u.onrender.com/api/folders/add/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -178,7 +178,7 @@ const handleCreateFolder = async () => {
 const handleRenameFile = async () => {
   if (!renameValue.trim()) return
 
-  await fetch("http://127.0.0.1:8000/api/files/rename/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/files/rename/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -202,7 +202,7 @@ const handleRenameFile = async () => {
 const handleRenameFolder = async () => {
   if (!folderRenameValue.trim()) return
 
-  await fetch("http://127.0.0.1:8000/api/folders/rename/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/folders/rename/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -222,7 +222,7 @@ const handleRenameFolder = async () => {
 }
 
 const handleDeleteFolderConfirm = async () => {
-  await fetch("http://127.0.0.1:8000/api/folders/delete/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/folders/delete/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id: selectedFolderId })

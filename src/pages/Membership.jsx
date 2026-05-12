@@ -28,7 +28,7 @@ const totalPages =
 
   const loadData = async () => {
     const res = await fetch(
-  `http://127.0.0.1:8000/api/membership/?semester=${semester}`,
+  `https://org-manager-o05u.onrender.com/api/membership/?semester=${semester}`,
   {
     credentials: "include"
   }
@@ -41,7 +41,7 @@ const totalPages =
   }
 useEffect(() => {
 
-  fetch("http://127.0.0.1:8000/api/schoolyears/")
+  fetch("https://org-manager-o05u.onrender.com/api/schoolyears/")
     .then(res => res.json())
     .then(data => {
 
@@ -96,7 +96,7 @@ useEffect(() => {
 }, [semester])
 
   const updateStatus = async (id, status) => {
-    await fetch("http://127.0.0.1:8000/api/membership/update/", {
+    await fetch("https://org-manager-o05u.onrender.com/api/membership/update/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

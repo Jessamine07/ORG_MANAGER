@@ -7,7 +7,7 @@ export const ProfileProvider = ({ children }) => {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/profile/")
+      const res = await fetch("https://org-manager-o05u.onrender.com/api/profile/")
       const data = await res.json()
       setProfile(data)
     } catch (err) {

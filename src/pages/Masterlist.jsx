@@ -26,7 +26,7 @@ const itemsPerPage = 10
 
   // ✅ LOAD TERMS FROM BACKEND
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/schoolyears/")
+    fetch("https://org-manager-o05u.onrender.com/api/schoolyears/")
       .then(res => res.json())
       .then(data => {
 
@@ -52,7 +52,7 @@ const itemsPerPage = 10
   useEffect(() => {
   if (!selectedTerm) return
 
-  fetch("http://127.0.0.1:8000/api/members/")
+  fetch("https://org-manager-o05u.onrender.com/api/members/")
     .then(res => res.json())
     .then(data => {
 
@@ -134,7 +134,7 @@ const itemsPerPage = 10
 
 
       // 🔥 ADD THIS HERE
-await fetch("http://127.0.0.1:8000/api/masterlist/upload/", {
+await fetch("https://org-manager-o05u.onrender.com/api/masterlist/upload/", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -152,7 +152,7 @@ setUploading(false)
 
 
 // 🔥 ADD THIS (RELOAD AFTER PDF UPLOAD)
-const res = await fetch("http://127.0.0.1:8000/api/members/")
+const res = await fetch("https://org-manager-o05u.onrender.com/api/members/")
 const dataReload = await res.json()
 
 const filtered = dataReload.filter(
@@ -269,7 +269,7 @@ console.log("ALL SHEETS DATA:", allData)
 
 
     // 🔥 ADD THIS HERE
-await fetch("http://127.0.0.1:8000/api/masterlist/upload/", {
+await fetch("https://org-manager-o05u.onrender.com/api/masterlist/upload/", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -289,7 +289,7 @@ setUploading(false)
 
 
 // 🔥 RELOAD FROM BACKEND
-const res = await fetch("http://127.0.0.1:8000/api/members/")
+const res = await fetch("https://org-manager-o05u.onrender.com/api/members/")
 const dataReload = await res.json()
 
 console.log("RELOADED:", dataReload)
@@ -979,13 +979,13 @@ ${
           onClick={async () => {
             if (!newYear) return
 
-            await fetch("http://127.0.0.1:8000/api/schoolyears/add/", {
+            await fetch("https://org-manager-o05u.onrender.com/api/schoolyears/add/", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ name: newYear })
             })
 
-            const res = await fetch("http://127.0.0.1:8000/api/schoolyears/")
+            const res = await fetch("https://org-manager-o05u.onrender.com/api/schoolyears/")
             const data = await res.json()
 
             const formatted = []
@@ -1256,7 +1256,7 @@ transition
           onClick={async () => {
 
             const res = await fetch(
-              "http://127.0.0.1:8000/api/masterlist/delete/",
+              "https://org-manager-o05u.onrender.com/api/masterlist/delete/",
               {
                 method: "POST",
                 headers: {
@@ -1269,7 +1269,7 @@ transition
             )
 
             const reload = await fetch(
-              "http://127.0.0.1:8000/api/members/"
+              "https://org-manager-o05u.onrender.com/api/members/"
             )
 
             const fresh = await reload.json()
@@ -1403,7 +1403,7 @@ transition
           onClick={async () => {
 
             await fetch(
-              "http://127.0.0.1:8000/api/schoolyears/delete/",
+              "https://org-manager-o05u.onrender.com/api/schoolyears/delete/",
               {
                 method: "POST",
                 headers: {
@@ -1419,7 +1419,7 @@ transition
             )
 
             const res = await fetch(
-              "http://127.0.0.1:8000/api/schoolyears/"
+              "https://org-manager-o05u.onrender.com/api/schoolyears/"
             )
 
             const data = await res.json()

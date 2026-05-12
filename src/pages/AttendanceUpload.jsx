@@ -52,7 +52,7 @@ const [selectedDeleteFile, setSelectedDeleteFile] = useState(null)
   formData.append("time", timeType)
   formData.append("semester", semester)
 
-  const response = await fetch("http://127.0.0.1:8000/api/upload/", {
+  const response = await fetch("https://org-manager-o05u.onrender.com/api/upload/", {
     method: "POST",
     body: formData
   })
@@ -64,12 +64,12 @@ const [selectedDeleteFile, setSelectedDeleteFile] = useState(null)
   setUploadSuccess(true)
 
   // ✅ REFRESH FILES
-  const filesRes = await fetch(`http://127.0.0.1:8000/api/attendance/files/?semester=${semester}`)
+  const filesRes = await fetch(`https://org-manager-o05u.onrender.com/api/attendance/files/?semester=${semester}`)
   const filesData = await filesRes.json()
   setFiles(filesData)
 
   // ✅ REFRESH STUDENTS (THIS FIXES YOUR PROBLEM)
-  const summaryRes = await fetch(`http://127.0.0.1:8000/api/attendance/summary/?semester=${semester}`)
+  const summaryRes = await fetch(`https://org-manager-o05u.onrender.com/api/attendance/summary/?semester=${semester}`)
   const summaryData = await summaryRes.json()
   setStudents(summaryData)
 }
@@ -96,7 +96,7 @@ const totalPages = Math.ceil(totalStudents / itemsPerPage)
   useEffect(() => {
     if (!semester) return
 
-    fetch(`http://127.0.0.1:8000/api/attendance/files/?semester=${semester}`)
+    fetch(`https://org-manager-o05u.onrender.com/api/attendance/files/?semester=${semester}`)
       .then(res => res.json())
       .then(data => setFiles(data))
 
@@ -105,14 +105,14 @@ const totalPages = Math.ceil(totalStudents / itemsPerPage)
   useEffect(() => {
   if (!semester) return
 
-  fetch(`http://127.0.0.1:8000/api/attendance/summary/?semester=${semester}`)
+  fetch(`https://org-manager-o05u.onrender.com/api/attendance/summary/?semester=${semester}`)
     .then(res => res.json())
     .then(data => setStudents(data))
 
 }, [semester])
 
 useEffect(() => {
-  fetch("http://127.0.0.1:8000/api/schoolyears/")
+  fetch("https://org-manager-o05u.onrender.com/api/schoolyears/")
     .then(res => res.json())
     .then(data => {
       const formatted = []
@@ -451,7 +451,7 @@ useEffect(() => {
 
         <button
           onClick={async () => {
-            const res = await fetch(`http://127.0.0.1:8000/api/attendance/details/${s.id}/?semester=${semester}`)
+            const res = await fetch(`https://org-manager-o05u.onrender.com/api/attendance/details/${s.id}/?semester=${semester}`)
             const data = await res.json()
 
             setDetails(data)
@@ -938,7 +938,7 @@ placeholder-gray-500
         const confirmDelete = confirm("Delete this attendance record?")
         if (!confirmDelete) return
 
-        await fetch("http://127.0.0.1:8000/api/attendance/delete/", {
+        await fetch("https://org-manager-o05u.onrender.com/api/attendance/delete/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -953,13 +953,13 @@ placeholder-gray-500
 
         // 🔥 REFRESH DETAILS
         const res = await fetch(
-  `http://127.0.0.1:8000/api/attendance/details/${selectedStudent.id}/?semester=${semester}`
+  `https://org-manager-o05u.onrender.com/api/attendance/details/${selectedStudent.id}/?semester=${semester}`
 )
         const newData = await res.json()
         setDetails(newData)
 
         // 🔥 REFRESH TABLE (VERY IMPORTANT)
-        const summary = await fetch(`http://127.0.0.1:8000/api/attendance/summary/?semester=${semester}`)
+        const summary = await fetch(`https://org-manager-o05u.onrender.com/api/attendance/summary/?semester=${semester}`)
         const summaryData = await summary.json()
         setStudents(summaryData)
       }}
@@ -1218,7 +1218,7 @@ shadow-[0_25px_70px_rgba(0,0,0,0.8)]
         <button
           onClick={async () => {
 
-            await fetch("http://127.0.0.1:8000/api/attendance/delete-all/", {
+            await fetch("https://org-manager-o05u.onrender.com/api/attendance/delete-all/", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -1235,7 +1235,7 @@ shadow-[0_25px_70px_rgba(0,0,0,0.8)]
             setSelectedStudent(null)
 
             // 🔥 REFRESH DATA
-            const summary = await fetch(`http://127.0.0.1:8000/api/attendance/summary/?semester=${semester}`)
+            const summary = await fetch(`https://org-manager-o05u.onrender.com/api/attendance/summary/?semester=${semester}`)
             const summaryData = await summary.json()
             setStudents(summaryData)
 
@@ -1359,7 +1359,7 @@ shadow-[0_25px_70px_rgba(0,0,0,0.8)]
           onClick={async () => {
 
             await fetch(
-              "http://127.0.0.1:8000/api/attendance/file/delete/",
+              "https://org-manager-o05u.onrender.com/api/attendance/file/delete/",
               {
                 method: "POST",
                 headers: {
@@ -1372,7 +1372,7 @@ shadow-[0_25px_70px_rgba(0,0,0,0.8)]
             )
 
             const res = await fetch(
-              `http://127.0.0.1:8000/api/attendance/files/?semester=${semester}`
+              `https://org-manager-o05u.onrender.com/api/attendance/files/?semester=${semester}`
             )
 
             const data = await res.json()
@@ -1380,7 +1380,7 @@ shadow-[0_25px_70px_rgba(0,0,0,0.8)]
             setFiles(data)
 
             const summary = await fetch(
-              `http://127.0.0.1:8000/api/attendance/summary/?semester=${semester}`
+              `https://org-manager-o05u.onrender.com/api/attendance/summary/?semester=${semester}`
             )
 
             const summaryData = await summary.json()

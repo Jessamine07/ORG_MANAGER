@@ -29,7 +29,7 @@ export default function Sidebar() {
 
   try {
 
-    await fetch("http://127.0.0.1:8000/api/logout/", {
+    await fetch("https://org-manager-o05u.onrender.com/api/logout/", {
       method: "POST",
       credentials: "include"
     })
@@ -58,7 +58,7 @@ export default function Sidebar() {
     formData.append("sidebar_image", file)
 
     try {
-      await fetch("[127.0.0.1](http://127.0.0.1:8000/api/profile/sidebar-image/)", {
+      await fetch("https://org-manager-o05u.onrender.com/api/profile/sidebar-image/", {
         method: "POST",
         body: formData,
         credentials: "include"

@@ -13,7 +13,7 @@ export default function Dashboard({ darkMode, setDarkMode }) {
   const [notifications, setNotifications] = useState([])
   const clearNotifications = async () => {
   try {
-    await fetch("http://127.0.0.1:8000/api/notifications/clear/", {
+    await fetch("https://org-manager-o05u.onrender.com/api/notifications/clear/", {
       method: "POST",
       credentials: "include"
     })
@@ -40,7 +40,7 @@ const [fileSearch, setFileSearch] = useState("")
 
 const handleRequest = async (id, action) => {
   try {
-    await fetch("http://127.0.0.1:8000/api/requests/handle/", {
+    await fetch("https://org-manager-o05u.onrender.com/api/requests/handle/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -57,7 +57,7 @@ const handleRequest = async (id, action) => {
 
 const fetchFiles = async () => {
   try {
-    const res = await fetch("http://127.0.0.1:8000/api/files/", {
+    const res = await fetch("https://org-manager-o05u.onrender.com/api/files/", {
       credentials: "include"
     })
 
@@ -71,7 +71,7 @@ const fetchFiles = async () => {
 
 const fetchRequests = async () => {
   try {
-    const res = await fetch("http://127.0.0.1:8000/api/requests/", {
+    const res = await fetch("https://org-manager-o05u.onrender.com/api/requests/", {
       credentials: "include"
     })
     const data = await res.json()
@@ -86,7 +86,7 @@ const fetchRequests = async () => {
 const addTask = async () => {
   if (!taskInput.trim()) return
 
-  await fetch("http://127.0.0.1:8000/api/tasks/add/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/tasks/add/", {
     method: "POST",
     credentials: "include",
     headers: { "Content-Type": "application/json" },
@@ -98,7 +98,7 @@ const addTask = async () => {
 }
 
 const removeTask = async (id) => {
-  await fetch("http://127.0.0.1:8000/api/tasks/delete/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/tasks/delete/", {
     method: "POST",
     credentials: "include",
     headers: { "Content-Type": "application/json" },
@@ -110,7 +110,7 @@ const removeTask = async (id) => {
 
 const fetchNotifications = async () => {
   try {
-    const res = await fetch("http://127.0.0.1:8000/api/notifications/", {
+    const res = await fetch("https://org-manager-o05u.onrender.com/api/notifications/", {
       credentials: "include"
     })
     const data = await res.json()
@@ -128,7 +128,7 @@ const [stats, setStats] = useState({
 
 const fetchStats = async () => {
   try {
-    const res = await fetch("http://127.0.0.1:8000/api/dashboard/", {
+    const res = await fetch("https://org-manager-o05u.onrender.com/api/dashboard/", {
       credentials: "include"
     })
     const data = await res.json()
@@ -140,7 +140,7 @@ const fetchStats = async () => {
 
 const fetchEvents = async () => {
   try {
-    const res = await fetch("http://127.0.0.1:8000/api/events/", {
+    const res = await fetch("https://org-manager-o05u.onrender.com/api/events/", {
   credentials: "include"
 })
     const data = await res.json()
@@ -152,7 +152,7 @@ const fetchEvents = async () => {
 
 const fetchMembers = async () => {
   try {
-    const res = await fetch("http://127.0.0.1:8000/api/members/", {
+    const res = await fetch("https://org-manager-o05u.onrender.com/api/members/", {
   credentials: "include"
 })
     const data = await res.json()
@@ -163,7 +163,7 @@ const fetchMembers = async () => {
 }
 
 const fetchTasks = async () => {
-  const res = await fetch("http://127.0.0.1:8000/api/tasks/", {
+  const res = await fetch("https://org-manager-o05u.onrender.com/api/tasks/", {
   credentials: "include"
 })
   const data = await res.json()

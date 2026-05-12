@@ -48,7 +48,7 @@ const [successMessage, setSuccessMessage] =
 
 useEffect(() => {
   fetch(
-  "http://127.0.0.1:8000/api/profile/",
+  "https://org-manager-o05u.onrender.com/api/profile/",
   {
     credentials: "include"
   }
@@ -93,7 +93,7 @@ const handleSubmit = async () => {
     console.log("SENDING DATA...")
 
     const response = await fetch(
-  "http://127.0.0.1:8000/api/profile/update/",
+  "https://org-manager-o05u.onrender.com/api/profile/update/",
   {
     method: "POST",
 
@@ -109,7 +109,7 @@ const handleSubmit = async () => {
 
     // 🔥 FETCH UPDATED DATA
     const res = await fetch(
-  "http://127.0.0.1:8000/api/profile/",
+  "https://org-manager-o05u.onrender.com/api/profile/",
   {
     credentials: "include"
   }
@@ -153,7 +153,7 @@ const handlePasswordChange = async () => {
   try {
 
     const response = await fetch(
-      "http://127.0.0.1:8000/api/change-password/",
+      "https://org-manager-o05u.onrender.com/api/change-password/",
       {
         method: "POST",
 

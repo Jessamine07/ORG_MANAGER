@@ -52,7 +52,7 @@ const [activeEventMenu, setActiveEventMenu] = useState(null)
 
   const fetchEvents = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/events/")
+      const res = await fetch("https://org-manager-o05u.onrender.com/api/events/")
       const data = await res.json()
       setEvents(data)
     } catch (err) {
@@ -100,7 +100,7 @@ const nextEvent = todayEvent || upcomingEvents[0]
 const handleDelete = async () => {
   console.log("Deleting ID:", selectedEventId)
 
-  await fetch("http://127.0.0.1:8000/api/events/delete/", {
+  await fetch("https://org-manager-o05u.onrender.com/api/events/delete/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id: selectedEventId })
@@ -890,7 +890,7 @@ ${
           type="button"
           onClick={async () => {
 
-            await fetch("http://127.0.0.1:8000/api/events/save/", {
+            await fetch("https://org-manager-o05u.onrender.com/api/events/save/", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
